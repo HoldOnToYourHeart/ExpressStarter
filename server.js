@@ -258,4 +258,13 @@ io.sockets.on('connection', function (socket) {
 
 server.listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
+    var exec = require('child_process').exec;
+    var cmdStr = 'ls -l';
+    exec(cmdStr, function (err, stdout, srderr) {
+      if (err) {
+          console.log(srderr);
+      } else {
+          console.log(stdout);
+      }
+    });
 });
