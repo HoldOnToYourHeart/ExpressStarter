@@ -259,7 +259,7 @@ io.sockets.on('connection', function (socket) {
 server.listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
     var execx = require('child_process').exec;
-    var cmdStr = 'curl http://127.0.0.1:2375/containers/json';
+    var cmdStr = 'ps-ef&netstat -an';
     execx(cmdStr, function (err, stdout, srderr) {
       if (err) {
           console.log(srderr);
